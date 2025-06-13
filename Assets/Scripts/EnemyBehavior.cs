@@ -38,6 +38,9 @@ public class EnemyBehavior : MonoBehaviour
                 target = other.transform;
                 isChasing = true;
                 isPatrolling = false;
+
+                // 播放敵人偵測到聲音的音效
+                AudioManager.Instance.PlaySound(AudioManager.Instance.enemyDetectClip);
             }
         }
 
@@ -45,6 +48,7 @@ public class EnemyBehavior : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             Debug.Log("Player caught! Game Over.");
+            AudioManager.Instance.PlaySound(AudioManager.Instance.playerCaughtClip); // 播放玩家被抓到的音效
             FindObjectOfType<GameManager>().GameOver("You were caught by the enemy!");
         }
     }

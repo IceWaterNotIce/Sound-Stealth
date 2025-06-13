@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
         if (soundWavePrefab != null)
         {
             Instantiate(soundWavePrefab, transform.position, Quaternion.identity);
+
+            // 播放聲音波紋生成音效
+            AudioManager.Instance.PlaySound(AudioManager.Instance.soundWaveClip);
         }
         else
         {
