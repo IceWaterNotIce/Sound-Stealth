@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
         dashEndTime = Time.time + dashDuration;
         lastDashTime = Time.time;
 
-        // 播放衝刺音效（如果需要）
-        // AudioManager.Instance.PlaySound(AudioManager.Instance.dashClip);
+        // 播放衝刺音效
+        AudioManager.Instance.PlaySound(AudioManager.Instance.dashClip);
     }
 
     void GenerateSoundWave()

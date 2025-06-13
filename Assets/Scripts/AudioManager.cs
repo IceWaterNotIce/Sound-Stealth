@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip soundWaveClip;    // 聲音波紋生成音效
     public AudioClip playerCaughtClip; // 玩家被抓到音效
     public AudioClip enemyDetectClip;  // 敵人偵測到玩家音效
+    public AudioClip dashClip;         // 衝刺音效
 
     private AudioSource audioSource;
 
