@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.icewaternotice.build-helper": {
-      "version": "https://github.com/IceWaterNotIce/Unity-Build-Helper.git",
+      "version": "https://github.com/IceWaterNotIce/Build-Helper.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3060bf1d13e8511d2af269951c659c1030623cda"
+      "hash": "81f8e1c4eb4c8a426f3a23b4f9478219ded6955c"
     },
     "com.unity.2d.animation": {
       "version": "10.1.3",
