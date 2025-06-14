@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
         if (gameOverText != null)
         {
-            gameOverText.text = message; // 設定遊戲結束訊息
+            gameOverText.text = message + "\nFinal Score: " + score; // 顯示遊戲結束訊息和最終分數
         }
 
         Time.timeScale = 0f; // 暫停遊戲
