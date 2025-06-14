@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,9 +17,9 @@ public class GameManager : MonoBehaviour
 
     private bool isGameOver = false;
     private bool isPaused = false;
-    private int score = 0; // 玩家分數
+    private float score = 0; // 玩家分數
     private bool isScoring = true;
-    private int highScore = 0; // 歷史最高分數
+    private float highScore = 0; // 歷史最高分數
 
     void Start()
     {
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
         // 持續增加分數（例如根據存活時間）
         if (isScoring)
         {
-            score += Mathf.FloorToInt(Time.deltaTime * 10); // 每秒增加 10 分
+            score += Time.deltaTime * 10; // 每秒增加 10 分
             UpdateScoreUI();
         }
     }
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
         if (score > highScore)
         {
             highScore = score;
-            PlayerPrefs.SetInt("HighScore", highScore); // 儲存最高分數
+            PlayerPrefs.SetFloat("HighScore", highScore); // 儲存最高分數
         }
 
         if (gameOverPanel != null)
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = "Score: " + Mathf.FloorToInt(score).ToString("F0"); // 更新分數顯示
         }
     }
 
@@ -143,7 +144,7 @@ public class GameManager : MonoBehaviour
         isScoring = false; // 停止計分
     }
 
-    public int GetScore()
+    public float GetScore()
     {
         return score; // 返回當前分數
     }
