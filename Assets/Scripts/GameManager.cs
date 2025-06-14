@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private bool isPaused = false;
     private int score = 0; // 玩家分數
     private bool isScoring = true;
+    private int highScore = 0; // 歷史最高分數
 
     void Start()
     {
@@ -35,6 +36,9 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = "Score: 0"; // 初始化分數顯示
         }
+
+        // 從 PlayerPrefs 加載最高分數
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     void Update()
@@ -66,6 +70,12 @@ public class GameManager : MonoBehaviour
 
         isGameOver = true;
 
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore); // 儲存最高分數
+        }
+
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true); // 顯示遊戲結束面板
@@ -73,7 +83,7 @@ public class GameManager : MonoBehaviour
 
         if (gameOverText != null)
         {
-            gameOverText.text = message + "\nFinal Score: " + score; // 顯示遊戲結束訊息和最終分數
+            gameOverText.text = message + "\nFinal Score: " + score + "\nHigh Score: " + highScore; // 顯示最終分數和最高分數
         }
 
         Time.timeScale = 0f; // 暫停遊戲
